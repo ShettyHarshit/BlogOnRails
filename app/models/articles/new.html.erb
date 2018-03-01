@@ -2,5 +2,38 @@
 <h1>New article</h1>
  
 <%= render 'form' %>
- 
+ <div id="clickme" onclick="clickme();">click me</div>
+<script>
+
+function clickme() {
+
+  var myForm = document.getElementById('myForm');
+  var formData = new FormData(myForm);
+  for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+  }
+
+  var blob = new Blob(["hELLO"], { type: "application/text" });
+
+  console.log("blob",blob);
+  for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+  }
+
+  formData.append("article['image']", blob)
+
+  var request = new XMLHttpRequest();
+  request.open("POST", "/articles");
+  request.send(formData);
+  request.response 
+  request.onreadystatechange = function() {//Call a function when the state changes.
+  console.log("got something")
+      if(request.readyState == XMLHttpRequest.DONE && request.status == 200) {
+          // Request finished. Do processing here.
+          console.log("RESPONSE:", request.response);
+      }
+  }
+}
+
+</script>
 <%= link_to 'Back', articles_path %>
