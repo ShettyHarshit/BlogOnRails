@@ -22,10 +22,13 @@
         <canvas id="myCvs" width="400" height="400"></canvas>
         <img id="myImg" src="" alt="image from canvas" />
     </div>
+        <!-- <img id="appendiv" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png" alt="image from canvas" /> -->
+        <!-- <img id="appendiv" src="http://demo.jobsito.com/clip/3269?file_name=data" alt="image from canvas" /> -->
+
 <script>
 
-    //   function getURL(url = "http://demo.jobsito.com/clip/3269?file_name=data"){
-    function getURL(url = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png") {
+      function getURL(url = "http://demo.jobsito.com/clip/3269?file_name=data"){
+    // function getURL(url = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pie.png") {
         return new Promise((resolve, reject) => {
             var img = new Image,
                 //an image that has the proper CORS response header
